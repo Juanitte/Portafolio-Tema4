@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap');
+
+* {
+    margin: 0;
+}
+
+:root {
+    --light-brown: #d2b48c;
+    --dark-brown: #a0522d;
+    --background-color: #e4d6c4;
+    --text-light-color: #666;
+    --text-dark-color: #333;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    font-family: "Roboto";
+    overflow: hidden;
+  }
+  
+  .envelope {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-brown);
+    border: 2px solid var(--dark-brown);
+    overflow: hidden;
+  }
+  
+  .flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: var(--dark-brown);
+    transform-origin: top;
+    transform: rotateX(0deg);
+    animation: openEnvelope 2s ease-in-out forwards;
+  }
+  
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/marco-medieval-2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: showContent 2s ease-in-out 1.5s forwards;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20vh;
+  }
+  
+  .content h1 {
+    margin: 0;
+    font-size: 3em;
+    color: var(--text-dark-color);
+  }
+  
+  .content p , .content h2 {
+    font-size: 1.5em;
+    color: var(--text-light-color);
+    padding-block: 20px;
+  }
+
+  .title {
+    font-family: "Lexend Giga";
+  }
+
+  .content p, ul {
+    font-size: 1.2em;
+    color: var(--text-light-color);
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ul {
+    width: fit-content;
+  }
+  
+  @keyframes openEnvelope {
+    0% {
+      transform: rotateX(0deg);
+    }
+    100% {
+      transform: rotateX(-180deg);
+    }
+  }
+  
+  @keyframes showContent {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
