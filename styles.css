@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=MedievalSharp&display=swap');
 
 * {
     margin: 0;
@@ -19,7 +18,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--background-color);
-    font-family: "Roboto";
+    font-family: "Macondo";
     overflow: hidden;
   }
   
@@ -43,7 +42,7 @@ body {
     transform: rotateX(0deg);
     animation: openEnvelope 2s ease-in-out forwards;
   }
-  
+
   .content {
     position: absolute;
     top: 0;
@@ -59,42 +58,110 @@ body {
     transform: translateY(20px);
     animation: showContent 2s ease-in-out 1.5s forwards;
     display: flex;
+    flex-direction: row;
+  }
+  
+  .left-side {
+    display: flex;
     flex-direction: column;
-    text-align: center;
     padding-top: 20vh;
+    padding-left: 10vw;
   }
   
   .content h1 {
-    margin: 0;
     font-size: 3em;
     color: var(--text-dark-color);
   }
   
   .content p , .content h2 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: var(--text-light-color);
     padding-block: 20px;
   }
 
+  .content h2 {
+    padding-left: 5vw;
+  }
+
   .title {
-    font-family: "Lexend Giga";
+    font-family: "MedievalSharp";
   }
 
   .content p, ul {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: var(--text-light-color);
   }
 
   .description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding-left: 5vw;
   }
 
   ul {
     width: fit-content;
+    padding-bottom: 10vh;
   }
+
+  .capital-letter {
+    width: 150px;
+    margin-bottom: -15px;
+    margin-right: -25px;
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 50%;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+    padding-right: 2vw;
+  }
+
+  .link-card {
+    width: 17vw;
+    height: 12vw;
+    perspective: 1000px;
+    
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.link-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.card-front img,
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}
   
   @keyframes openEnvelope {
     0% {
