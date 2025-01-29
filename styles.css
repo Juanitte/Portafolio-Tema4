@@ -162,6 +162,48 @@ body {
 .card-back {
     transform: rotateY(180deg);
 }
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 150%;
+  left: 80%;
+  transform: translateX(-50%);
+  width: 250px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.tooltip img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.tooltip-container:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-container:focus .tooltip {
+  animation: jump 0.4s ease-in-out;
+}
+
+.hidden-focus {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
   
   @keyframes openEnvelope {
     0% {
@@ -181,4 +223,12 @@ body {
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  @keyframes jump {
+    0% { transform: translateX(-50%) translateY(0); }
+    30% { transform: translateX(-50%) translateY(-10px); }
+    50% { transform: translateX(-50%) translateY(0); }
+    70% { transform: translateX(-50%) translateY(-5px); }
+    100% { transform: translateX(-50%) translateY(0); }
   }
