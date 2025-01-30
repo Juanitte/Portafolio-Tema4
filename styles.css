@@ -26,9 +26,12 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: var(--light-brown);
     border: 2px solid var(--dark-brown);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .flap {
@@ -49,23 +52,38 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-image: url("assets/marco-medieval-2.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    box-sizing: border-box;
+    padding-bottom: 18vh;
+    padding-top: 21vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    
     opacity: 0;
-    transform: translateY(20px);
-    animation: showContent 2s ease-in-out 1.5s forwards;
-    display: flex;
-    flex-direction: row;
-  }
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 0s linear 1s; /* Visibilidad se retrasa */
+}
+
+#content1:target, #content2:target {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    transition: opacity 1s ease-in-out, visibility 0s linear 0s;
+}
   
   .left-side {
     display: flex;
     flex-direction: column;
-    padding-top: 20vh;
-    padding-left: 10vw;
+    width: 50%;
+    height: 100%;
+    justify-content: space-between;
   }
   
   .content h1 {
@@ -98,7 +116,6 @@ body {
 
   ul {
     width: fit-content;
-    padding-bottom: 10vh;
   }
 
   .capital-letter {
@@ -114,10 +131,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    max-width: 50%;
-    padding-top: 20vh;
-    padding-bottom: 20vh;
-    padding-right: 2vw;
+    width: 50%;
   }
 
   .link-card {
@@ -203,6 +217,17 @@ body {
   width: 1px;
   height: 1px;
   opacity: 0;
+}
+
+.button {
+  text-align: center;
+  background-color: var(--light-brown);
+  color: white;
+  border: 2px dotted var(--dark-brown);
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
   
   @keyframes openEnvelope {
