@@ -65,20 +65,16 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding-bottom: 16vh;
-    padding-top: 17vh;
+    padding-bottom: 18vh;
+    padding-top: 21vh;
     padding-left: 10vw;
     padding-right: 10vw;
     
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s ease-in-out, visibility 0s linear 1s; /* Visibilidad se retrasa */
-}
+    transform: translateY(20px);
 
-#content1 {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
+    animation: showContent 1s ease-in-out forwards;
 }
 
 #content1:target,
@@ -105,8 +101,9 @@ body {
   }
   
   .content h1 {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     color: var(--text-dark-color);
+    font-family: "MedievalSharp";
   }
   
   .content p , .content h2 {
@@ -117,9 +114,6 @@ body {
 
   .content h2 {
     padding-left: 5vw;
-  }
-
-  .title {
     font-family: "MedievalSharp";
   }
 
@@ -138,7 +132,7 @@ body {
 
   .capital-letter {
     width: 10vw;
-    margin-bottom: -15px;
+    margin-bottom: -25px;
     margin-right: -25px;
   }
 
@@ -204,7 +198,7 @@ body {
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  top: 150%;
+  top: 120%;
   left: 80%;
   transform: translateX(-50%);
   width: 250px;
@@ -248,6 +242,36 @@ body {
   transition: background-color 0.3s ease;
   text-decoration: none;
 }
+
+.icon {
+  width: 30px;
+  opacity: 0.5;
+}
+
+input {
+  background-color: var(--light-brown);
+  color: var(--text-dark-color);
+  border: 1px solid var(--dark-brown);
+  border-radius: 5px;
+  padding : 10px 20px;
+  font-family: "Macondo";
+  font-size: 14px;
+}
+
+button {
+  background-color: var(--light-brown);
+  color: var(--text-dark-color);
+  border: 1px solid var(--dark-brown);
+  border-radius: 5px;
+  padding : 10px 20px;
+  cursor: pointer;
+  font-family: "Macondo";
+
+  &:hover {
+    background-color: var(--dark-brown);
+    color: white;
+  }
+}
   
   @keyframes openEnvelope {
     0% {
@@ -260,14 +284,16 @@ body {
   
   @keyframes showContent {
     0% {
-      opacity: 0;
-      transform: translateY(20px);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
-  }
+}
 
   @keyframes jump {
     0% { transform: translateX(-50%) translateY(0); }
